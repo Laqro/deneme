@@ -248,7 +248,8 @@
                }, 3000);
            }, (err) => {
                btn.innerText = 'HATA!';
-               alert('Bağlantı koptu: ' + JSON.stringify(err));
+               console.error("EmailJS Hatası:", err);
+               alert("Bir sorun oluştu Choombatta! Lütfen internetini kontrol et veya tüm alanları doldurduğundan emin ol.");
                btn.innerText = originalText;
            });
    });
