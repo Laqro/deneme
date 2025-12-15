@@ -110,25 +110,9 @@
             <label for="corpo" style="color: #81ecec;">Şirketçi</label><br><br>
             <input type="radio" id="unknown" name="geçmiş" value="unknown">
             <label for="unknown" style="color: #0065d8c8;">Bilinmiyor</label><br><br>
-            <script>
-                  function secimiSifirla() {
 
-                    //'gecmis' ismindeki tüm radyo butonlarını buluyoruz
-                    var secenekler = document.getElementsByName ('geçmiş');
-
-                    // Hepsini tek tek gezip işareti kaldırıyoruz
-                    for(var i = 0; i <secenekler.length; i++) {
-                        secenekler[i].checked = false;
-                    }
-                  }
-                
-            </script>
     </div>     
-            
-            <button type="button" onclick="secimiSifirla()" style="background-color: white; color: black; border: none; padding: 5px 10px; cursor: pointer; font-size: 15px; margin-top: 5px;">
-                Seçimi Temizle
-            </button>    
-         
+               
         <h4 style="color: white;">Dogum Yeri</h4>
             
             <select name="bolge" id="bolge" style="margin-bottom: 10px; padding: 5px;">
@@ -199,3 +183,4 @@
 
 </body>
 </html>
+
