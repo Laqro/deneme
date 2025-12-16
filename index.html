@@ -16,7 +16,7 @@
         border-bottom: 2px solid #ff4757;
         box-shadow: 0 0 15px #ff4757;
        }
-
+ 
        .menu-link{
            text-decoration: none;
            color: #fff;
@@ -24,16 +24,17 @@
            font-weight: bold;
            background-color: rgba(255, 255, 255, 0.1);
            padding: 10px 30px;
-           border-radius: 1px solid #fce38a;
-           transition: 0.3s;
+           border-radius: 0px solid #2bd1ff;
+           transition: 0.4s;
            letter-spacing: 2px;
 
        }
 
        .menu-link:hover{
-          background-color: #fce38a;
+          background-color: #2bd1ff;
+          border-radius: 15px;
           color: #000;
-          box-shadow: 0 0 20px #fce38a;
+          box-shadow: 0 0 20px #2bd1ff;
 
        }
 
@@ -49,31 +50,108 @@
 
         }
 
-       body{
+        .cyber-kutu h2{
+            font-family: 'Silkscreen', cursive;
+            color: #fff;
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: neon-nefes 2s infinite ease-in-out;
 
-       background-image: url('NightCity.jpg.png');
-       background-size: cover;
-       background-repeat: no-repeat;
-       background-attachment: fixed;
-       background-color: #1a1a1a;
-       font-family: 'Bitcount Prop Single', monospace;
-       color: white;
-       text-align: center;
-       margin: 0;
-       padding-top: 20px;
+        }
 
-       }
+        @keyframes neon-nefes {
+            0% {
+              text-shadow: 0 0 5px #ff4757;
+              opacity: 1;
+            }
+
+            50% {
+                text-shadow: 0 0 10px #ff4757, 0 0 20px #ff4757;
+                opacity: 0.9;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #ff4757;
+                opacity: 1;
+            }
+        }
+
+        ::placeholder {
+            color: white;
+            font-style: italic;
+            font-size: 12px;
+
+        }
+
+        .cyber-kutu input[type="text"],
+        .cyber-kutu input[type="password"],
+        .cyber-kutu input[type="email"],
+        .cyber-kutu select {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 25px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid #ff4757;
+            color: #fff;
+            font-family: 'Bitcount Prop Single', monospace;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .cyber-kutu input[type="color"]{
+           display: block;
+           width: 100%;
+           height: 25px;
+           padding: 0px;
+           margin-bottom: 20px;
+           background-color: transparent;
+           box-sizing: border-box;
+           border: 1px solid #ff4757;
+           cursor: pointer;
+        }
+
+        .cyber-kutu input[type="color"] ::-webkit-color-swatch {
+            border: none;
+            border-radius: 0;
+        }
+
+        .cyber-kutu input[type="color"] ::-moz-color-swatch {
+            border: none;
+            border-radius: 0;
+        }
 
 
+        .cyber-kutu input :focus,
+        .cyber-kutu select :focus{
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px #ff4757;
+            border-color: #fce38a;
+        }
 
-       input[type="radio"] {
-        transform: scale(1.5);
-        margin-right: 10px;
-        accent-color: #ff4757;
+        .cyber-kutu > label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ff4757;
+            font-family: 'Silkscreen', cursive;
+            font-size: 14px;
+            letter-spacing: 1px;
 
-       }
+        }
 
-       #nomad {
+        .cyber-gecmis {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+           
+
+    
+        #nomad {
         accent-color: #a29bfe ;
        }
 
@@ -87,6 +165,28 @@
 
        #unknown{
         accent-color: #0065d8c8;
+       }
+
+       label[for="risk"] {
+           color: #ff4757;
+           font-size: 13px;
+           font-family: 'Bitcount Prop Single', monospace;
+
+        }
+
+       body{
+
+       background-image: url('NightCity.png');
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-color: #1a1a1a;
+       font-family: 'Bitcount Prop Single', monospace;
+       color: white;
+       text-align: center;
+       margin: 0;
+       padding-top: 20px;
+
        }
 
        @media (max-width: 768px){
@@ -162,20 +262,20 @@
         <h2 style="color: #ff4757;font-family:'Silkscreen', cursive; font-size: 20px ; color: crimson;">Night City'e Kayıt Ol</h2><br><br>
 
         <form id="night-city-form" method="post" style="font-family: Bitcount Prop Single;">
-            <label for="kodadi">Kod Adın</label><br>
-            <input type="text" id="kodadi" name="kodadi" placeholder="Örn: V" required><br><br>
+            <label for="kodadi">Kod Adın</label>
+            <input type="text" id="kodadi" name="kodadi" placeholder="Örn: V" required>
 
-            <label for="sifre">Gizli Sifre</label><br>
-            <input type="password" id="sifre" name="sifre" required><br><br>
+            <label for="sifre">Gizli Sifre</label>
+            <input type="password" id="sifre" name="sifre" required>
 
-            <label for="eposta">İletişim Adresi</label><br>
-            <input type="email" id="eposta" name="eposta" placeholder="mail@ornek.com"><br><br>
+            <label for="eposta">İletişim Adresi</label>
+            <input type="email" id="eposta" name="eposta" placeholder="mail@ornek.com">
 
-            <label for="neon">Neon Rengini Seç</label><br>
-            <input type="color" id="neon" name="neon" value="#ff0000"><br><br>
+            <label for="neon">Neon Rengini Seç</label>
+            <input type="color" id="neon" name="neon" value="#ff0000">
  
 
-     <div style="display: table; margin: 0 auto; text-align: left;">
+     <div style="display: table; margin: 0 auto; text-align: left;" class="cyber-gecmis">
         <h3 style="color: white;">Geçmişini Seç</h3>
         
             <input type="radio" id="nomad" name="geçmiş" value="nomad">
@@ -189,7 +289,9 @@
             <input type="radio" id="unknown" name="geçmiş" value="unknown">
             <label for="unknown" style="color: #0065d8c8;">Bilinmiyor</label><br><br>
 
-     </div>     
+     </div>
+     
+     <div class="cyber-dogum">
             
         <h4 style="color: white;">Dogum Yeri</h4>
             
@@ -206,9 +308,10 @@
             <label for="risk" style="color: #ff4757; font-size: 15px;">
                 Bu işlem geri alınamaz. Ölüm riskini kabul ediyorum.
             </label><br><br>
+    </div>
 
             
-            <button type="submit" id="hack-btn" style="background-color: #ff4757; color: white; cursor: pointer; border:none; padding:10px 20px;">SİSTEME SIZ</button>
+            <button type="submit" id="hack-btn" style="background-color: #ff4757; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">Sisteme Sız</button>
            
      </form>
     
