@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Night City</title>
+    
+    <style>
+       
+       .ust-menu{
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;     
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-bottom: 2px solid #6813d7;
+        box-shadow: 0 0 15px #6813d7;
+       }
+ 
+       .menu-link{
+           text-decoration: none;
+           color: #fff;
+           font-family: 'Bitcount Prop Single', monospace;
+           font-weight: bold;
+           background-color: rgba(255, 255, 255, 0.1);
+           padding: 10px 30px;
+           border: 1px;
+           border-radius: 15px;
+           transition: 0.4s;
+           letter-spacing: 2px;
+
+       }
+
+       .menu-link:hover{
+          background-color: #2bd1ff;
+          border-radius: 15px;
+          color: #000;
+          box-shadow: 0 0 20px #2bd1ff;
+
+       }
+
+       .saldiri-kutu{
+        width: 150px;
+        height: auto;
+        padding: 10px;
+        margin: 100px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        border: 2px solid #6813d7;
+        border-radius: 5px;
+        letter-spacing: 2px;
+        font-family: 'Silkscreen', cursive;
+        
+       }
+
+       body{
+
+       background-image: url('NightCity.png');
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-color: #1a1a1a;
+       font-family: 'Bitcount Prop Single', monospace;
+       color: white;
+       text-align: center;
+       margin: 0;
+       padding-top: 20px;
+
+       }
+
+       @media (max-width: 768px){
+
+           .ust-menu {
+               flex-direction: column;
+               height: auto;
+               padding: 20px 10px;
+               gap: 15px;
+
+           }
+
+           .menu-link{
+               width: 100%;
+               text-align: center;
+               display: block;
+               box-sizing: border-box;
+
+       }
+
+       }
+
+
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="ust-menu">
+        <a href="anasayfa.html" class="menu-link">ANA SAYFA</a>
+        <a href="hakkimda.html" class="menu-link">HAKKIMDA</a>
+        <a href="index.html" class="menu-link">KAYIT OL</a>
+
+     </nav>
+
+<div class="saldiri-kutu">
+    <h2 id="canGöstergesi">Can: 100</h2>
+    <div style="width: 150px; height: 30px; border: 2px solid #6813d7; margin: 10px auto; background-color: #333;">
+    <div id="canBari" style="width: 100%; height: 100%; background-color: white; transition: 0.5s;"></div>
+    </div>
+    <h3 id="levelText">Level: 1</h3>
+    <p id="xpText">XP: 0 / 100</p>
+
+     <button onclick="HasarAl()" style="background-color: #000; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">SALDIRI YE</button> <br> <br>
+     <button onclick="canYenile()" style="background-color: #000; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">CAN YENİLE</button> <br> <br>
+     <button onclick="xpKazan(20)" style="background-color: #000; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">HAFİF SALDIRI</button><br> <br>
+     <button onclick="xpKazan(50)" style="background-color: #000; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">AĞIR SALDIRI</button><br><br>
+     <button onclick="xpKazan(100)" style="background-color: #000; color: white; cursor: pointer; border:none; padding:10px 20px; font-family: 'Bitcount Prop Single', monospace;">RYOİKİ TENKAİ</button>
+</div>
+
+<script>
+   console.log("Sistemler Yükleniyor...")
+   console.log("Merhaba Night City! Sistem Online.");
+   let oyuncuIsmi = "Netrunner Ali";
+   let oyuncuSeviyesi = 1;
+   let oyuncuCani = 100;
+   let oyuncuXP = 0;
+   console.log("Hoş geldin " +  oyuncuIsmi );
+   console.log("Level " +  oyuncuSeviyesi);
+   console.log("Can " +  oyuncuCani);
+
+   function HasarAl() {
+    if (oyuncuCani > 0){
+    oyuncuCani = oyuncuCani - 10;
+    document.getElementById("canGöstergesi").innerText = "Can " + oyuncuCani;
+    document.getElementById("canBari").style.width = oyuncuCani + "%";
+    let barRengi = document.getElementById("canBari");
+
+    if (oyuncuCani > 70) {
+    barRengi.style.backgroundColor = "#4caf50";
+   }
+
+   else if (oyuncuCani > 30) {
+    barRengi.style.backgroundColor = "#ff9800";
+   }
+
+   else {
+    barRengi.style.backgroundColor = "#f44336";
+   }
+
+    console.log("Can Düştü " + oyuncuCani);
+    }
+
+    else {
+        document.getElementById("canGöstergesi").innerText = "💀OYUN BİTTİ";
+        document.getElementById("canGöstergesi").style.color= "red";
+        document.getElementById("canBari").style.width = "0%";
+    }
+    
+   }
+
+   function xpKazan(gelenPuan) {
+
+    if (oyuncuCani <= 0) {
+        alert ("Ölüsün! Hack yapamazsın. Sayfayı yenile veya Medkit bul.");
+        return;
+    }
+
+
+    oyuncuXP = oyuncuXP + gelenPuan;
+    console.log ("Saldırı yapıldı! Kazanlıan XP: " + gelenPuan);
+
+    if (oyuncuXP >= 100) {
+        oyuncuSeviyesi = oyuncuSeviyesi + 1;
+        oyuncuXP = 0;
+
+        alert("TEBRİKLER NETRUNNER! SEVİYE ATLADIN!");
+
+        oyuncuCani = 100;
+        document.getElementById("canGöstergesi").innerText = "Can " + oyuncuCani;
+        document.getElementById("canGöstergesi").style.color = "white"
+        document.getElementById("canBari").style.width = oyuncuCani + "%";
+
+        canBari.style.backgroundColor = "#4caf50"
+    }
+    document.getElementById("levelText").innerText = "Level " + oyuncuSeviyesi
+    document.getElementById("xpText").innerText = "XP: " + oyuncuXP + " /100";
+   }
+
+function canYenile() {
+
+    if (oyuncuCani < 100 && oyuncuCani > 0) {
+        
+        oyuncuCani = oyuncuCani + 10;
+        
+
+        document.getElementById("canGöstergesi").innerText = "Can " + oyuncuCani;
+        document.getElementById("canGöstergesi").style.color = "white"; 
+
+        
+        let bar = document.getElementById("canBari");
+        bar.style.width = oyuncuCani + "%";
+
+        
+        if (oyuncuCani > 70) {
+            bar.style.backgroundColor = "#4caf50"; 
+        } 
+        else if (oyuncuCani > 30) {
+            bar.style.backgroundColor = "#ff9800"; 
+        } 
+        else {
+            bar.style.backgroundColor = "#f44336"; 
+        }
+
+        console.log("İyileştin! Yeni Can: " + oyuncuCani);
+    } 
+    else if (oyuncuCani >= 100) {
+        console.log("Canın zaten dolu!");
+    }
+    else {
+        console.log("Ölüler iyileşemez...");
+    }
+}
+</script>
+
+
+</body>
+</html>
